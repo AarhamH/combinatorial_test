@@ -4,11 +4,9 @@ import os
 import shutil
 import stat
 
-# Load the test frames (skipping ACTS header comments)
 CSV_FILE = 'PYGMENTS_System-output_updated.csv'
 df = pd.read_csv(CSV_FILE, comment='#')
 
-# Test environment constants
 TEST_DIR = "pygments_test_env"
 RESTRICTED_DIR = os.path.join(TEST_DIR, "restricted_dir")
 OUTPUT_FILE = os.path.join(TEST_DIR, "output.html")
@@ -33,7 +31,7 @@ def get_content(row):
     
     base_text = "print('Pygments Test')\n"
     if content_type == 'invalid_syntax':
-        base_text = "print('Unclosed string\n" # Deliberate syntax error
+        base_text = "print('Unclosed string\n"
         
     if size_shape == 'long_line':
         text = "a = '" + "x" * 10000 + "'\n" + base_text
@@ -54,7 +52,6 @@ def get_content(row):
 def run_test(row_index, row):
     cmd = ["pygmentize"]
     
-    # Flags mapping
     if row['lexer'] == 'valid_match': cmd.extend(["-l", "python"])
     elif row['lexer'] == 'valid_mismatch': cmd.extend(["-l", "ruby"])
     elif row['lexer'] == 'invalid': cmd.extend(["-l", "fake_lexer"])
@@ -68,7 +65,6 @@ def run_test(row_index, row):
     if row['style_option'] == 'valid_builtin': cmd.extend(["-O", "style=monokai"])
     elif row['style_option'] == 'invalid': cmd.extend(["-O", "style=fake_style"])
 
-    # Output mapping
     if row['output'] == 'file_path':
         cmd.extend(["-o", os.path.join(TEST_DIR, "valid_out.html")])
     elif row['output'] == 'restricted':
@@ -89,7 +85,6 @@ def run_test(row_index, row):
         elif row['file_existence'] == 'missing':
             cmd.append(os.path.join(TEST_DIR, "missing.py"))
 
-    # Expected Result Logic
     expect_error = any([
         row['file_existence'] == 'missing' and input_method == 'file_path',
         row['lexer'] == 'invalid',
@@ -106,7 +101,7 @@ def run_test(row_index, row):
         else:
             result = subprocess.run(cmd, capture_output=True, timeout=5)
         
-        os.chmod(RESTRICTED_DIR, 0o777) # Unlock for cleanup
+        os.chmod(RESTRICTED_DIR, 0o777)
         actual_error = (result.returncode != 0)
         
         if actual_error != expect_error:
@@ -117,13 +112,11 @@ def run_test(row_index, row):
         os.chmod(RESTRICTED_DIR, 0o777)
         return {"index": row_index, "status": "EXEC_ERROR", "cmd": " ".join(cmd), "detail": str(e)}
 
-# Main Execution Loop
 results = []
 setup_env()
 for i, row in df.iterrows():
     results.append(run_test(i, row))
 
-# Output Summary
 res_df = pd.DataFrame(results)
 print(f"Total Tests: {len(res_df)} | Passed: {len(res_df[res_df.status == 'PASS'])} | Bugs Found: {len(res_df[res_df.status == 'BUG FOUND'])}")
 print("\n--- Detailed Bug Report ---")
