@@ -1,1 +1,3 @@
 pygments_test_env/
+harness/__pycache__/
+pygments_test_results.csv
