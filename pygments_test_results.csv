@@ -1,0 +1,78 @@
+index,status,detail,cmd
+0,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+1,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+2,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_2.py
+3,PASS,ok (oracle: nonexistent output dir),pygmentize -g -f terminal256 -O nonexistent_option_xyz=True -O style=monokai -F tokenmerge:maxmerge=5 -o pygments_test_env/does_not_exist_xyz/out_3.html pygments_test_env/input_3.py
+4,PASS,ok (oracle: invalid style),pygmentize -f latex -O !!!notvalid!!! -O style=nonexistent_style_xyz -l c pygments_test_env/input_4.h
+5,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+6,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+7,PASS,ok (oracle: normal execution),"pygmentize -g -f latex -O noclasses=True,cssclass=highlight -O style=monokai -F tokenmerge -o pygments_test_env/out_7.html pygments_test_env/input file 7!@#$.py"
+8,PASS,ok (oracle: nonexistent output dir),pygmentize -f html -l ruby -F raiseonerror -o pygments_test_env/does_not_exist_xyz/out_8.html pygments_test_env/input_8.py
+9,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_9.py
+10,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+11,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_11.h
+12,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+13,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+14,PASS,ok (oracle: invalid formatter),pygmentize -g -f nonexistent_formatter_xyz -O style=nonexistent_style_xyz -F tokenmerge -o pygments_test_env/restricted_out/out_14.html pygments_test_env/input_14.py
+15,PASS,ok (oracle: restricted output dir),pygmentize -f latex -O full=True -O style=monokai -l python -F raiseonerror -o pygments_test_env/restricted_out/out_15.html pygments_test_env/input_15.py
+16,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+17,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+18,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+19,BUG FOUND,"VALID BUG: RETURNCODE_MISMATCH – expected_fail=True (reason: bad formatter config), actual_fail=False, stderr=",pygmentize -f terminal256 -O !!!notvalid!!! -O style=monokai -l python -o pygments_test_env/out_19.html pygments_test_env/input_19.py
+20,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+21,PASS,ok (oracle: nonexistent output dir),pygmentize -g -f html -O full=True -O style=monokai -o pygments_test_env/does_not_exist_xyz/out_21.html pygments_test_env/input_21
+22,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_22.py
+23,PASS,ok (oracle: invalid formatter),pygmentize -g -f nonexistent_formatter_xyz -O style=monokai -F tokenmerge:maxmerge=5 -o pygments_test_env/does_not_exist_xyz/out_23.html pygments_test_env/input file 23!@#$.py
+24,PASS,ok (oracle: invalid lexer),pygmentize -f nonexistent_formatter_xyz -O style=nonexistent_style_xyz -l nonexistent_lexer_xyz -F tokenmerge -o pygments_test_env/out_24.html pygments_test_env/input_24.py
+25,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+26,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_26.py
+27,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+28,PASS,ok (oracle: invalid formatter),pygmentize -g -f nonexistent_formatter_xyz -O style=nonexistent_style_xyz -o pygments_test_env/does_not_exist_xyz/out_28.html pygments_test_env/input_28
+29,PASS,ok (oracle: bad formatter config),pygmentize -f latex -O nonexistent_option_xyz=True -O style=monokai -l python -F tokenmerge -F raiseonerror -o pygments_test_env/out_29.html pygments_test_env/input_29
+30,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+31,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+32,BUG FOUND,"VALID BUG: RETURNCODE_MISMATCH – expected_fail=True (reason: bad formatter config), actual_fail=False, stderr=",pygmentize -g -f latex -O !!!notvalid!!! -O style=monokai -F tokenmerge:maxmerge=5 pygments_test_env/input_32.py
+33,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_33.h
+34,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+35,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+36,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+37,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_37.h
+38,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+39,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+40,PASS,ok (oracle: invalid formatter),pygmentize -f nonexistent_formatter_xyz -O style=nonexistent_style_xyz -F tokenmerge:maxmerge=5 -o pygments_test_env/restricted_out/out_40.html
+41,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+42,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+43,PASS,ok (oracle: normal execution),"pygmentize -g -f terminal256 -O noclasses=True,cssclass=highlight -O style=monokai -F tokenmerge:maxmerge=5 -o pygments_test_env/out_43.html pygments_test_env/input_43.py"
+44,PASS,ok (oracle: normal execution),pygmentize -f html -O full=True -O style=monokai -l ruby -F tokenmerge -o pygments_test_env/out_44.html pygments_test_env/input_44
+45,PASS,ok (oracle: nonexistent output dir),"pygmentize -f latex -O noclasses=True,cssclass=highlight -O style=monokai -l ruby -F tokenmerge -F raiseonerror -o pygments_test_env/does_not_exist_xyz/out_45.html pygments_test_env/input_45.py"
+46,PASS,ok (oracle: restricted output dir),pygmentize -f html -O nonexistent_option_xyz=True -O style=monokai -l c -F tokenmerge -o pygments_test_env/restricted_out/out_46.html pygments_test_env/input_46.h
+47,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+48,PASS,ok (oracle: normal execution),pygmentize -g -f html -F tokenmerge:maxmerge=5 -o pygments_test_env/out_48.html pygments_test_env/input_48.py
+49,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+50,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+51,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_51.py
+52,PASS,ok (oracle: nonexistent output dir),pygmentize -f terminal256 -O nonexistent_option_xyz=True -O style=monokai -l c -F tokenmerge -o pygments_test_env/does_not_exist_xyz/out_52.html pygments_test_env/input_52.h
+53,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+54,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_54.py
+55,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_55.py
+56,PASS,ok (oracle: invalid formatter),pygmentize -f nonexistent_formatter_xyz -O style=nonexistent_style_xyz -l c -F tokenmerge:maxmerge=5 -o pygments_test_env/out_56.html pygments_test_env/input_56
+57,PASS,ok (oracle: invalid style),pygmentize -f html -O full=True -O style=nonexistent_style_xyz -l ruby -F raiseonerror -o pygments_test_env/does_not_exist_xyz/out_57.html pygments_test_env/input_57.py
+58,PASS,ok (oracle: invalid lexer),pygmentize -f terminal256 -O !!!notvalid!!! -O style=monokai -l nonexistent_lexer_xyz -F raiseonerror -o pygments_test_env/out_58.html pygments_test_env/input_58
+59,PASS,ok (oracle: invalid lexer),"pygmentize -f html -O noclasses=True,cssclass=highlight -O style=nonexistent_style_xyz -l nonexistent_lexer_xyz -o pygments_test_env/out_59.html pygments_test_env/input_59"
+60,PASS,ok (oracle: invalid lexer),pygmentize -f html -O style=monokai -l nonexistent_lexer_xyz -F tokenmerge -o pygments_test_env/does_not_exist_xyz/out_60.html pygments_test_env/input file 60!@#$.py
+61,PASS,ok (oracle: invalid style),pygmentize -g -f terminal256 -O style=nonexistent_style_xyz -o pygments_test_env/out_61.html pygments_test_env/input file 61!@#$.py
+62,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+63,PASS,ok (oracle: nonexistent output dir),"pygmentize -g -f html -O noclasses=True,cssclass=highlight -O style=monokai -F tokenmerge -o pygments_test_env/does_not_exist_xyz/out_63.html pygments_test_env/input file 63!@#$.py"
+64,PASS,ok (oracle: normal execution),pygmentize -g -f html -O full=True -O style=monokai -F tokenmerge:maxmerge=5 -o pygments_test_env/out_64.html pygments_test_env/input file 64!@#$.py
+65,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_65.py
+66,PASS,ok (oracle: info flag: expect success),pygmentize -N pygments_test_env/input_66.py
+67,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+68,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+69,PASS,ok (oracle: invalid lexer),pygmentize -f terminal256 -O full=True -O style=nonexistent_style_xyz -l nonexistent_lexer_xyz -F tokenmerge -F raiseonerror -o pygments_test_env/restricted_out/out_69.html pygments_test_env/input_69.py
+70,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+71,PASS,ok (oracle: invalid lexer),pygmentize -f nonexistent_formatter_xyz -l nonexistent_lexer_xyz -F tokenmerge:maxmerge=5 pygments_test_env/input_71.py
+72,PASS,ok (oracle: normal execution),pygmentize -f terminal256 -O full=True -O style=monokai -l ruby -F tokenmerge -o pygments_test_env/out_72.html
+73,PASS,ok (oracle: info flag: expect success),pygmentize -L styles
+74,PASS,ok (oracle: info flag: expect success),pygmentize -L lexers
+75,PASS,ok (oracle: info flag: expect success),pygmentize -L formatters
+76,PASS,ok (oracle: bad formatter config),pygmentize -g -f terminal256 -O nonexistent_option_xyz=True -O style=monokai -F tokenmerge -o pygments_test_env/out_76.html
